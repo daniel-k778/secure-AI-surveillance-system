@@ -1,7 +1,6 @@
-## Overview
+# Overview
 
-This repository contains a simple object detection application using YOLOv8 model, implemented in Python with the help of the Ultralytics library. The application allows users to log in, configure settings, and perform live object detection using a provided RTSP URL.
-
+This project centers around the development of an object detection application utilizing the YOLOv8 model. The primary aim of this project is to develop a robust and secure surveillance system empowered by AI-based object detection. The system is designed to provide real-time monitoring capabilities, ensuring the identification and tracking of objects within a given environment. The focus is on enhancing security through intelligent detection and authentication mechanisms. This project also features an intuitive interface, configuration settings, and secure access with user authentication.
 ## Features
 
 ## Usage
