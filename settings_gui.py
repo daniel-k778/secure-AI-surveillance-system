@@ -13,7 +13,7 @@ def load():
     load_lbl = Label(window, text='Loading stream...', font=('IMPACT', 12), fg='green', bg='white').place(x=20, y=320)
     window.update_idletasks()
 
-    # Start the live detection subprocess
+    # Start the live detection subprocess(Change python.exe path based on your venv name)
     process = subprocess.Popen([".venv\Scripts\python.exe", "livedetection.py", str(confidence), rtsp_url, quit_key])
     process.wait()
 

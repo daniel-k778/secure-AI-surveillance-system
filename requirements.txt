@@ -1,6 +1,6 @@
-python -m venv .venv
-
-pip install ultralytics
-pip install mysql-connector-python
-pip install opencv
-pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+ultralytics
+mysql-connector-python
+opencv
+torch
+torchvision
+torchaudio
