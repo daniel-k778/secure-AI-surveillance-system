@@ -3,4 +3,4 @@ datasets
 __pycache__
 runs
 test_videos
-video_images
+datasets.zip
