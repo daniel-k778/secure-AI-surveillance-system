@@ -1,5 +1,3 @@
-#pip install mysql-connector-python
-
 from tkinter import *
 from tkinter import messagebox
 from PIL import Image, ImageTk
@@ -7,9 +5,10 @@ import mysql.connector
 import hashlib
 import socket
 
-
+# Class for the Login GUI
 class Login:
     def __init__(self, root):
+        # GUI Initialization
         self.root = root
         self.root.title('')
         self.root.geometry('800x600+570+200')
@@ -39,9 +38,7 @@ class Login:
         self.submit = Button(self.Frame_login, text="Login", command=self.check_function, font=('Arial', 12, 'bold'), bg='#6162FF', fg='white', padx=10, pady=5, cursor='hand2', borderwidth=2,  relief=FLAT ).place(x=90, y=320, width=180, height=40)
         self.register_button = Button(self.Frame_login, text="Register", command=self.create_acc, font=('Arial', 12, 'bold'), bg='#4CAF50', fg='white', padx=10, pady=5, cursor='hand2', borderwidth=2,  relief=FLAT ).place(x=90, y=370, width=180, height=40)
 
-
-
-        # Create Account Frame (initially hidden)
+        # Create Account Frame
         self.Frame_create_account = Frame(self.root, bg='white')
         self.title_create_account = Label(self.Frame_create_account, text='Create Account', font=('Impact', 35, 'bold'), fg='#6162FF', bg='white')
         self.subtitle_create_account = Label(self.Frame_create_account, text='New Members Registration', font=('Goudy old style', 15, 'bold'), fg='#1d1d1d', bg='white')
@@ -51,7 +48,8 @@ class Login:
         self.password_create_account = Entry(self.Frame_create_account, font=('Goudy old style', 15), bg='#E7E6E6', show='*')
         self.submit_create_account = Button(self.Frame_create_account, text="Register", command=self.check_function_create_account, font=('Arial', 12, 'bold'), bg='#4CAF50', fg='white', padx=10, pady=5, cursor='hand2', borderwidth=2,  relief=FLAT )
         self.back_to_login = Button(self.Frame_create_account, text="Back to Login", command=self.redirect_login, font=('Arial', 12, 'bold'), bg='#6162FF', fg='white', padx=10, pady=5, cursor='hand2', borderwidth=2,  relief=FLAT )
-
+    
+    # Function to handle the login process
     def check_function(self):
         if self.username.get()=='' or self.password.get()=='':
             messagebox.showerror('Error', 'All fields are required', parent=self.root)
@@ -67,7 +65,6 @@ class Login:
                     success_label_login = Label(self.Frame_login, text='Login successfull! Loading application...', font=('Goudy old style', 12), fg='green', bg='white')
                     success_label_login.place(x=90, y=320)
                     self.root.update_idletasks()
-
                     self.root.after(2000, lambda: self.load_config())
 
                 elif message == 'False':
@@ -77,13 +74,16 @@ class Login:
             except socket.error as e:
                 messagebox.showerror('Connection Error', f'Unable to connect to the server. {e}', parent=self.root)
 
+    # Function to load configuration after successful login
     def load_config(self):
         self.root.destroy()
         import config_gui
 
+    # Function to handle the "Forgot Password" functionality
     def forgot_pass(self):
         messagebox.showinfo('Account Recovery', 'Contact developer for password reset', parent=self.root)
 
+    # Function to switch to the account creation view
     def create_acc(self):
         self.Frame_login.place_forget()
         self.Frame_create_account.place(x=20, y=20, width=760, height=560)
@@ -96,14 +96,17 @@ class Login:
         self.submit_create_account.place(x=90, y=320, width=180, height=40)
         self.back_to_login.place(x=90, y=370, width=180, height=40)
 
+    # Function to redirect after a successful operation
     def redirect_after_success(self, label):
         label.destroy()
         self.redirect_login()
         
+    # Function to switch back to the login view
     def redirect_login(self):
         self.Frame_create_account.place_forget()
         self.Frame_login.place(x=20, y=20, width=760, height=560)
 
+    # Function to handle the account creation process
     def check_function_create_account(self):
         if self.username_create_account.get()=='' or self.password_create_account.get()=='':
             messagebox.showerror('Error', 'All fields are required', parent=self.root)
@@ -113,6 +116,7 @@ class Login:
                 client_password = self.password_create_account.get()
 
                 try:
+                    #Change MySQL host/user/password/database based on your personal database or create a free one at sql3.freesqldatabase.com
                     conn = mysql.connector.connect(
                         host='sql3.freesqldatabase.com',
                         user='sql3663427',
@@ -154,7 +158,7 @@ class Login:
                 if 'conn' in locals():
                     conn.close()
 
-
+# Main entry point
 if __name__ == '__main__':
     root = Tk()
     obj = Login(root)

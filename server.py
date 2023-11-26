@@ -3,6 +3,7 @@ import socket
 import threading
 from mysql.connector import pooling
 
+#Change MySQL host/user/password/database based on your personal database or create a free one at sql3.freesqldatabase.com
 db_pool = pooling.MySQLConnectionPool(
     pool_name="mypool",
     pool_size=5,
@@ -13,11 +14,12 @@ db_pool = pooling.MySQLConnectionPool(
     database='sql3663427'
 )
 
+# Create a socket for the server to listen for incoming connections on localhost:9999
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server.bind(("localhost", 9999))
-
 server.listen()
 
+# Function to handle each incoming client connection
 def handle_connection(c):
     data_received = c.recv(1024).decode()
     username, password = data_received.split('|')
@@ -40,6 +42,7 @@ def handle_connection(c):
         cursor.close()
         connection.close()
 
+# Infinite loop to accept incoming client connections and spawn a new thread for each connection
 while True:
     client, addr = server.accept()
     threading.Thread(target=handle_connection, args=(client,)).start()
