@@ -29,6 +29,8 @@ python login_gui.py
 6. Load the live detection stream from the settings GUI by pressing 'LOAD'
 
 7. Perform object detection based on the provided RTSP URL.
+
+8. To ensure the program runs as expected, modify the MySQL host, user, password, and database based on your personal database or create a free one at sql3.freesqldatabase.com. Alongside this, ensure that the subprocess.Popen line in the file `settings_gui.py` contains the correct path for your virtual environment.
 ## Navigating this repository
 ### Main Program Files
 
