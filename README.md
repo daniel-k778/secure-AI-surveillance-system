@@ -58,7 +58,9 @@ python login_gui.py
 
 ### Training Files
 
-- `
+- `self_train.py`: This script uses a YOLO model to perform object detection on images in the video_images folder. Detected objects are saved with confidence scores, and annotated images are stored with the prefix inference_.
+- `file_sync.py`: This script synchronizes files between folder2 and folder3 based on the files present in folder1. It removes files from folder2 without corresponding names in folder1 and moves files from folder3 to folder4 if their names are not in folder1.
+- `video_framesave.py`: This script extracts frames from videos in train_videos and saves them as images in video_images. It captures one frame every 30 frames of the video, saving images with filenames based on the video filename and an incremental counter.
 
 ## Acknowledgements
 
