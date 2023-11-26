@@ -49,7 +49,3 @@ python login_gui.py
 
 - YOLO model implemented using the Ultralytics library.
 - MySQL database used for user authentication.
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
