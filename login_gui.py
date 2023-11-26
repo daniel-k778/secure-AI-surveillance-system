@@ -77,7 +77,7 @@ class Login:
     # Function to load configuration after successful login
     def load_config(self):
         self.root.destroy()
-        import config_gui
+        import settings_gui
 
     # Function to handle the "Forgot Password" functionality
     def forgot_pass(self):
