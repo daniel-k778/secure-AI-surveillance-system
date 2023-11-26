@@ -40,9 +40,9 @@ python login_gui.py
 
 ### Training Files
 
-- `self_train.py`: This script uses a YOLO model to perform object detection on images in the video_images folder. Detected objects are saved with confidence scores, and annotated images are stored with the prefix inference_.
-- `file_sync.py`: This script synchronizes files between folder2 and folder3 based on the files present in folder1. It removes files from folder2 without corresponding names in folder1 and moves files from folder3 to folder4 if their names are not in folder1.
-- `video_framesave.py`: This script extracts frames from videos in train_videos and saves them as images in video_images. It captures one frame every 30 frames of the video, saving images with filenames based on the video filename and an incremental counter.
+- `video_framesave.py`: This script extracts frames from videos in train_videos and saves them as images in the video_images folder. It captures one frame every 30 frames of the video, saving images with filenames based on the video filename and an incremental counter.
+- `self_train.py`: This script uses a YOLO model to perform object detection on images in the video_images folder. Detected objects are saved with confidence scores. To use this script create a new folder called 'video_images' in the same directory and paste the images you want YOLO to annotate. Note that this script is intended to accelerate the training process. It is not recommended to use this script if you have a model trained on a weak dataset. Once the script is finished, look through the annotations and delete any false detections.
+- `file_sync.py`: After refining the annotated images, paste them into the data_val/inference_box directory. Alongside, relocate the raw images used in the self_train.py script to the data_val/inference_im directory and the labels created to the data_val/inference_labels directory. This script synchronizes the labels and raw images based on the refined annotations. It removes any labels and raw images which do not correlate to the annotations. After running this script, feel free to delete the annotations and move the labels and raw images to your datasets folder.
 
 ## Acknowledgements
 
@@ -52,4 +52,3 @@ python login_gui.py
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
-```
