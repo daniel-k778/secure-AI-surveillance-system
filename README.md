@@ -1,53 +1,35 @@
-```markdown
-# Object Detection Application
-
 ## Overview
 
-This repository contains a simple object detection application using YOLO (You Only Look Once) model, implemented in
-Python with the help of the Ultralytics library. The application allows users to log in, configure settings, and
-perform live object detection using a provided RTSP URL.
+This repository contains a simple object detection application using YOLOv8 model, implemented in Python with the help of the Ultralytics library. The application allows users to log in, configure settings, and perform live object detection using a provided RTSP URL.
 
-## Getting Started
+## Features
 
-### Prerequisites
-
-- Python 3.x
-- pip (Python package installer)
-
-### Installation
-
-1. Clone the repository to your local machine:
-
-```bash
-git clone https://github.com/your-username/your-repository.git
-cd your-repository
-```
-
-2. Install the required dependencies:
+## Usage
+1. Install the required dependencies:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### Usage
-
-1. Run the server:
+2. Run the server:
 
 ```bash
 python server.py
 ```
 
-2. Run the login GUI:
+3. Run the login GUI:
 
 ```bash
 python login_gui.py
 ```
 
-3. Follow the instructions on the login GUI to log in and configure settings.
+4. Follow the instructions on the login GUI to log in and configure settings.
 
-4. Load the live detection stream from the settings GUI.
+5. Enter the RTSP URL for ip camera or enter the folder path for a video.
 
-5. Perform object detection based on the provided RTSP URL.
+6. Load the live detection stream from the settings GUI by pressing 'LOAD'
+
+7. Perform object detection based on the provided RTSP URL.
 ## Navigating this repository
 ### Main Program Files
 
