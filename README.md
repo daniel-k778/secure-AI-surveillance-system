@@ -1,53 +1,36 @@
-```markdown
-# Object Detection Application
+# Overview
 
-## Overview
+This project centers around the development of an object detection application utilizing the YOLOv8 model. The primary aim of this project is to develop a robust and secure surveillance system empowered by AI-based object detection. The system is designed to provide real-time monitoring capabilities, ensuring the identification and tracking of objects within a given environment. The focus is on enhancing security through intelligent detection and authentication mechanisms. This project also features an intuitive interface, configuration settings, and secure access with user authentication.
+## Features
 
-This repository contains a simple object detection application using YOLO (You Only Look Once) model, implemented in
-Python with the help of the Ultralytics library. The application allows users to log in, configure settings, and
-perform live object detection using a provided RTSP URL.
-
-## Getting Started
-
-### Prerequisites
-
-- Python 3.x
-- pip (Python package installer)
-
-### Installation
-
-1. Clone the repository to your local machine:
-
-```bash
-git clone https://github.com/your-username/your-repository.git
-cd your-repository
-```
-
-2. Install the required dependencies:
+## Usage
+1. Install the required dependencies:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### Usage
-
-1. Run the server:
+2. Run the server:
 
 ```bash
 python server.py
 ```
 
-2. Run the login GUI:
+3. Run the login GUI:
 
 ```bash
 python login_gui.py
 ```
 
-3. Follow the instructions on the login GUI to log in and configure settings.
+4. Follow the instructions on the login GUI to log in and configure settings.
 
-4. Load the live detection stream from the settings GUI.
+5. Enter the RTSP URL for ip camera or enter the folder path for a video.
 
-5. Perform object detection based on the provided RTSP URL.
+6. Load the live detection stream from the settings GUI by pressing 'LOAD'
+
+7. Perform object detection based on the provided RTSP URL.
+
+8. To ensure the program runs as expected, modify the MySQL host, user, password, and database based on your personal database or create a free one at sql3.freesqldatabase.com. Alongside this, ensure that the subprocess.Popen line in the file `settings_gui.py` contains the correct path for your virtual environment.
 ## Navigating this repository
 ### Main Program Files
 
@@ -58,9 +41,9 @@ python login_gui.py
 
 ### Training Files
 
-- `self_train.py`: This script uses a YOLO model to perform object detection on images in the video_images folder. Detected objects are saved with confidence scores, and annotated images are stored with the prefix inference_.
-- `file_sync.py`: This script synchronizes files between folder2 and folder3 based on the files present in folder1. It removes files from folder2 without corresponding names in folder1 and moves files from folder3 to folder4 if their names are not in folder1.
-- `video_framesave.py`: This script extracts frames from videos in train_videos and saves them as images in video_images. It captures one frame every 30 frames of the video, saving images with filenames based on the video filename and an incremental counter.
+- `video_framesave.py`: This script extracts frames from videos in train_videos and saves them as images in the video_images folder. It captures one frame every 30 frames of the video, saving images with filenames based on the video filename and an incremental counter.
+- `self_train.py`: This script uses a YOLO model to perform object detection on images in the video_images folder. Detected objects are saved with confidence scores. To use this script create a new folder called 'video_images' in the same directory and paste the images you want YOLO to annotate. Note that this script is intended to accelerate the training process. It is not recommended to use this script if you have a model trained on a weak dataset. Once the script is finished, look through the annotations and delete any false detections.
+- `file_sync.py`: After refining the annotated images, paste them into the data_val/inference_box directory. Alongside, relocate the raw images used in the self_train.py script to the data_val/inference_im directory and the labels created to the data_val/inference_labels directory. This script synchronizes the labels and raw images based on the refined annotations. It removes any labels and raw images which do not correlate to the annotations. After running this script, feel free to delete the annotations and move the labels and raw images to your datasets folder.
 
 ## Acknowledgements
 
@@ -70,4 +53,3 @@ python login_gui.py
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
-```
