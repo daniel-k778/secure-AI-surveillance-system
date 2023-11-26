@@ -45,6 +45,10 @@ python login_gui.py
 - `self_train.py`: This script uses a YOLO model to perform object detection on images in the video_images folder. Detected objects are saved with confidence scores. To use this script paste the images you want YOLO to annotate in the video_images folder. Note that this script is intended to accelerate the training process. It is not recommended to use this script if you have a model trained on a weak dataset. Once the script is finished, look through the annotations and delete any false detections.
 - `file_sync.py`: After refining the annotated images, paste them into the data_val/inference_box directory. Alongside, relocate the raw images used in the self_train.py script to the data_val/inference_im directory and the labels created to the data_val/inference_labels directory. This script synchronizes the labels and raw images based on the refined annotations. It removes any labels and raw images which do not correlate to the annotations. After running this script, feel free to delete the annotations and move the labels and raw images to your datasets folder.
 
+## Other
+
+- Find my dataset and Google Collab notebook here: https://drive.google.com/drive/folders/1rQ1QxwT1W-DWCtMU2SG7cg2bSyBjZOMO?usp=sharing
+- 
 ## Acknowledgements
 
 - YOLO model implemented using the Ultralytics library.
