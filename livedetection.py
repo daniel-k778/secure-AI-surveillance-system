@@ -2,8 +2,35 @@ from tkinter import messagebox
 from ultralytics import YOLO
 import cv2
 import math
-import cvzone
 import sys
+from tkinter import *
+from datetime import datetime
+
+# Create a Tkinter window for logs
+log_window = Tk()
+log_window.title("AI Confidence Logs")
+log_window.resizable(False, False)
+
+# Create a text widget to display logs
+log_text = Text(log_window, height=10, width=50)
+log_text.pack()
+
+# Function to export data to a text document
+def export_to_text():
+    try:
+        logs = log_text.get("1.0", END)
+
+        with open('confidence_logs.txt', 'w') as file:
+            file.write(logs)
+
+        messagebox.showinfo('Export Successful', 'Data exported to confidence_logs.txt')
+
+    except Exception as e:
+        messagebox.showerror('Error', f"An error occurred during export: {str(e)}")
+
+# Create buttons to export data
+export_text_button = Button(log_window, text="Export to Text", command=export_to_text, font=('Arial', 12, 'bold'), bg='white', fg='gray14', padx=10, pady=5, cursor='hand2', relief=FLAT)
+export_text_button.pack(side=BOTTOM, fill=BOTH, expand=True)
 
 
 try:
@@ -23,14 +50,16 @@ try:
 
     cap = cv2.VideoCapture(video_path)
 
+    # Start time for logging
+    start_time = datetime.now()
+
     while True:
         # Read a frame from the video stream
         ret, frame = cap.read()
 
         if not ret:
-            # Show an error message if unable to read a frame
             messagebox.showerror('Error', "Can't read frame... Exiting... ")
-            exit()
+            break
         
         # YOLO object detection and tracking
         results = model.track(frame, persist=True, stream=True, conf=confidence, verbose=False)
@@ -45,25 +74,23 @@ try:
                 # Display class and confidence on the frame
                 conf = (math.ceil((box.conf[0] * 100)) / 100) * 100
                 cls = int(box.cls[0])
-                cvzone.putTextRect(
-                    frame,
-                    f'Class: {classNames[cls]} Conf: %{conf:.0f}',
-                    (max(0, x1), max(35, y1)),
-                    scale=0.4,
-                    thickness=1,
-                    colorT=(255, 255, 255),
-                    colorR=(0, 0, 0),
-                    font=cv2.QT_FONT_NORMAL,
-                    border=1,
-                    colorB=(0, 0, 0)
-                )
-                
-        # Display the frame with bounding boxes
-        cv2.imshow('Video Stream', frame)
 
-        # Break the loop if the quit key is pressed
+                # Log instances with real-world date and time
+                timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                log_text.insert(END, f'{timestamp}: Class: {classNames[cls]} Confidence: %{conf:.0f}\n')
+                
+        cv2.imshow('Video Stream', frame)
+        log_window.update()
+
+        # Quit key
         if cv2.waitKey(25) & 0xFF == ord(quit_key):
             break
 
 except Exception as e:
     messagebox.showerror('Error', f"An error occurred: {str(e)}")
+
+finally:
+    cap.release()
+    log_window.destroy()
+
+log_window.mainloop()

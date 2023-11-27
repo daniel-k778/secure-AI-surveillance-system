@@ -1,6 +1,5 @@
 from tkinter import *
 from tkinter import messagebox
-from PIL import Image, ImageTk
 import mysql.connector
 import hashlib
 import socket

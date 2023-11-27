@@ -1,6 +1,4 @@
 from tkinter import *
-from tkinter import messagebox
-from PIL import Image, ImageTk
 import subprocess
 
 # Function to load the live detection stream
@@ -15,7 +13,6 @@ def load():
 
     # Start the live detection subprocess(Change python.exe path based on your venv name)
     process = subprocess.Popen([".venv\Scripts\python.exe", "livedetection.py", str(confidence), rtsp_url, quit_key])
-    process.wait()
 
     # Close the main window after loading
     window.destroy()
