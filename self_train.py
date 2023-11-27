@@ -10,6 +10,8 @@ def main():
         files = os.listdir(folder_path)
         image_extensions = ['.jpg', '.jpeg', '.png', '.gif']
         image_files = [file for file in files if any(file.lower().endswith(ext) for ext in image_extensions)]
+
+        # Process each image file in the folder
         for image_file in image_files:
             image_path = os.path.join(folder_path, image_file)
             print(f"Processing image: {image_path}")

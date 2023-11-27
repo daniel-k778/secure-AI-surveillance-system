@@ -2,8 +2,9 @@ import cv2
 import time
 import os
 
-
 folder_path = 'train_videos'
+
+
 def main():
     try:
         files = os.listdir(folder_path)
@@ -29,6 +30,7 @@ def main():
                 count = 0
                 frame_counter = 0
 
+                # Loop through video frames
                 while True:
                     ret, frame = cap.read()
 
@@ -36,14 +38,14 @@ def main():
                         print("End of video.")
                         break
                     cv2.imshow('Frame', frame)
-
+                    # Save every 30th frame as an image(can be modified)
                     if frame_counter % 30 == 0:
                         filename = os.path.join(output_folder, f'{video_filename}_image_{count}.png')
                         cv2.imwrite(filename, frame)
                         print(f"Saved: {filename}")
                         count += 1
                     frame_counter += 1
-
+                    # Quit the video processing
                     if cv2.waitKey(1) & 0xFF == ord('q'):
                         break
 
