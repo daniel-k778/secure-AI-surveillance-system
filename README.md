@@ -57,7 +57,7 @@ python login_gui.py
 ## Other
 
 - Find my dataset and Google Collab notebook here: https://drive.google.com/drive/folders/1rQ1QxwT1W-DWCtMU2SG7cg2bSyBjZOMO?usp=sharing
-- 
+
 ## Acknowledgements
 
 - YOLO model implemented using the Ultralytics library.
