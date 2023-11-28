@@ -3,6 +3,15 @@
 This project centers around the development of an object detection application utilizing the YOLOv8 model. The primary aim of this project is to develop a robust and secure surveillance system empowered by AI-based object detection. The system is designed to provide real-time monitoring capabilities, ensuring the identification and tracking of objects within a given environment. The focus is on enhancing security through intelligent detection and authentication mechanisms. This project also features an intuitive interface, configuration settings, and secure access with user authentication.
 ## Features
 
+* **Object Detection**: Utilizes the swift and precise operational capabilities of the YOLOv8 algorithm for object detection in video streams.
+* **Secure Login System**: A well-designed and secure login system that establishes a socket connection with the server, sends encrypted user credentials, and receives authentication results. User passwords are hashed using SHA-256 before being transmitted or stored in the database, enhancing security.
+* **GUI Design**: Presents a user-friendly login interface with fields for username and password. Users can also navigate to the account creation view or recover a forgotten password.
+* **Configuration Panel**: Users can finely adjust the confidence level for object detection using a slider. The confidence slider allows a dynamic range from 0% to 100%, providing control over the sensitivity of the detection algorithm. The panel also features an entry field for an RTSP URL as well as a drop-down menu for choosing a key to quit the program.
+* **Detection Logs**: The Detection Logs feature in this script serves to provide a detailed and timestamped record of object detection instances during the real-time detection process. This feature enhances user visibility and facilitates post-analysis by logging key information for each detected object. Users can export these logs and use them to pin point the exact instance when a specific object was detected.
+* **Wireless Compatibility**: The live detection system boasts wireless compatibility, primarily facilitated through the integration of RTSP (Real-Time Streaming Protocol) URL configuration. This feature provides users with several advantages such as remote deployment and real-time monitoring.
+* **MySQL Database**: The login system interacts with a MySQL database to check for existing usernames and store new user data securely using SHA-256 encryption. The server utilizes MySQL connection pooling for efficient and scalable database connections.
+* **Error Handling**: The system incorporates error handling for various scenarios, including connection errors and database access issues.
+
 ## Usage
 1. Install the required dependencies:
 
