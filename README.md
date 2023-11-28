@@ -61,4 +61,3 @@ python login_gui.py
 ## Acknowledgements
 
 - YOLO model implemented using the Ultralytics library.
-- MySQL database used for user authentication.
