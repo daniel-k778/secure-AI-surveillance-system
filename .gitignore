@@ -4,3 +4,4 @@ __pycache__
 runs
 test_videos
 datasets.zip
+detection_logs.txt

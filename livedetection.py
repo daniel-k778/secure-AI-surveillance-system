@@ -20,10 +20,10 @@ def export_to_text():
     try:
         logs = log_text.get("1.0", END)
 
-        with open('confidence_logs.txt', 'w') as file:
+        with open('detection_logs.txt', 'w') as file:
             file.write(logs)
 
-        messagebox.showinfo('Export Successful', 'Data exported to confidence_logs.txt')
+        messagebox.showinfo('Export Successful', 'Data exported to detection_logs.txt')
 
     except Exception as e:
         messagebox.showerror('Error', f"An error occurred during export: {str(e)}")
