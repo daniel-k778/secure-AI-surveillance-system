@@ -11,7 +11,8 @@ This project centers around the development of an object detection application u
 * **Wireless Compatibility**: The live detection system boasts wireless compatibility, primarily facilitated through the integration of RTSP (Real-Time Streaming Protocol) URL configuration. This feature provides users with several advantages such as remote deployment and real-time monitoring.
 * **MySQL Database**: The login system interacts with a MySQL database to check for existing usernames and store new user data securely using SHA-256 encryption. The server utilizes MySQL connection pooling for efficient and scalable database connections.
 * **Error Handling**: The system incorporates error handling for various scenarios, including connection errors and database access issues.
-** **PyTorch Integration**: Efficiently harness the power of NVIDIA GPUs through CUDA 11.8 in PyTorch, enabling GPU acceleration for the YOLO object detection model. This results in significantly improved inference speed, parallel processing, reduced CPU load, and enhanced overall system performance for real-time object detection in video streams.
+* **PyTorch Integration**: Efficiently harness the power of NVIDIA GPUs through CUDA 11.8 in PyTorch, enabling GPU acceleration for the YOLO object detection model. This results in significantly improved inference speed, parallel processing, reduced CPU load, and enhanced overall system performance for real-time object detection in video streams.
+
 ## Usage
 1. Install the required dependencies:
 
