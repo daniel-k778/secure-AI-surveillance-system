@@ -1,6 +1,5 @@
 ultralytics
 mysql-connector-python
-opencv
 torch
 torchvision
 torchaudio
