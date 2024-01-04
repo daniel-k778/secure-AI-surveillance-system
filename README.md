@@ -58,6 +58,7 @@ python login_gui.py
 ## Other
 
 - Find my dataset and Google Collab notebook here: https://drive.google.com/drive/folders/1rQ1QxwT1W-DWCtMU2SG7cg2bSyBjZOMO?usp=sharing
+- Project video: https://www.youtube.com/watch?v=EicWTMx5Nik
 
 ## Acknowledgements
 
